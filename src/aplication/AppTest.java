@@ -37,6 +37,8 @@ public class AppTest {
 
 		System.out.print("Digite o nome do candidato: ");
 		String nome = sc.nextLine();
+		
+		pessoa.setNome(nome);
 
 		while (pessoa.getSenha() == null) {
 			System.out.print("Digite a senha: ");
