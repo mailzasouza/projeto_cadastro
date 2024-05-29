@@ -34,10 +34,10 @@ public class AppTest {
 		// Pedir informações do usuario e preencher seus dados (Scanner 'SC')
 		Pessoa pessoa = new Pessoa();
 		Endereco endereco = new Endereco();
-		
-	System.out.print("Digite o nome do candidato: ");
+
+		System.out.print("Digite o nome do candidato: ");
 		String nome = sc.nextLine();
-		
+
 		while (pessoa.getSenha() == null) {
 			System.out.print("Digite a senha: ");
 			String senha = sc.nextLine();
@@ -45,7 +45,7 @@ public class AppTest {
 				pessoa.setSenha(senha);
 			}
 		}
-	
+
 		while (pessoa.getCpf() == null) {
 			System.out.print("Digite o cpf: ");
 			String cpf = sc.nextLine();
@@ -53,30 +53,23 @@ public class AppTest {
 				pessoa.setCpf(cpf);
 			}
 		}
-	
-		while (pessoa.getIdade() == null) {
+
+		do {
 			System.out.print("Digite a idade: ");
 			int idade = sc.nextInt();
 			sc.nextLine();
-			
-			if(ValidadorPessoa.validarIdade(idade)) {
-				pessoa.setIdade(idade);
-			}
-		}		
-			 
-			
-		
-		
-			
+
+			pessoa.setIdade(idade);
+		} while (!ValidadorPessoa.validarIdade(pessoa.getIdade()));
+
 		do {
 			System.out.print("Digite o email: ");
 			pessoa.setEmail(sc.nextLine());
 			if (!ValidadorPessoa.validarEmail(pessoa)) {
 				System.out.println("Email invalido. Digite novamente: ");
 			}
-	}		 while 	(!ValidadorPessoa.validarEmail(pessoa));
-			
-		
+		} while (!ValidadorPessoa.validarEmail(pessoa));
+
 		System.out.print("Digite a altura: ");
 		pessoa.setAltura(sc.nextDouble());
 		sc.nextLine();
@@ -95,8 +88,6 @@ public class AppTest {
 
 		ValidadorPessoa.validarDadosPessoa(pessoa);
 		return pessoa;
-		
-		
-		}	
+
 	}
- 
+}
