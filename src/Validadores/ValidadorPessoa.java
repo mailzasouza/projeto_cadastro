@@ -49,10 +49,12 @@ public class ValidadorPessoa {
 		return true;
 	}
 	
-	private static void validarAltura(Pessoa pessoa) {
+	public static boolean validarAltura(Pessoa pessoa) {
 		if (pessoa.getAltura() < 1.80) {
-			throw new RuntimeException("O candidato não tem altura o suficiente ");
+			System.out.println("O candidato não tem altura o suficiente ");
+			return false;
 		}
+		return true;
 	}
 	
 

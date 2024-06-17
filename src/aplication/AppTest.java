@@ -26,7 +26,6 @@ public class AppTest {
 		listaDePessoa.add(pessoa);
 		System.out.println("Finalizou");
 		sc.close();
-
 	}
 
 	private static Pessoa CadastrarUsuario(Scanner sc) {
@@ -72,9 +71,16 @@ public class AppTest {
 			}
 		} while (!ValidadorPessoa.validarEmail(pessoa));
 
+		while(pessoa.getAltura()< 1.80) {
 		System.out.print("Digite a altura: ");
 		pessoa.setAltura(sc.nextDouble());
 		sc.nextLine();
+		if (ValidadorPessoa.validarAltura(pessoa)) {
+			double altura = 18;
+			pessoa.setAltura(altura);
+		}
+		
+		
 		System.out.print("Digite o Bairro: ");
 		endereco.setBairro(sc.nextLine());
 		System.out.print("Digite o nome da Rua: ");
@@ -91,5 +97,9 @@ public class AppTest {
 		ValidadorPessoa.validarDadosPessoa(pessoa);
 		return pessoa;
 
-	}
+		}
+		sc.close();
 }
+}
+	
+
